@@ -1,0 +1,55 @@
+
+<!--答题结果-->
+<!-- <view class='cir-border'>
+  <view class="wrap">  
+    <view class="top">  
+      <canvas class="cir" style="width:212px; height:212px;" canvas-id="canvasArc">  
+      </canvas>  
+      <view class="cc-t">正确率</view>
+      <view class="cc">{{correct_rate}}<text>%</text></view>  
+    </view>  
+  </view> 
+</view> -->
+<view class='resulttopTip'>
+  <view class='topTip'>恭喜您完成练习</view>
+  <view class='topTip1'>恭喜您完成练习</view>
+  <image src='http://imgs.52jiaoshi.com/1560743224.png' class='rusulticon'></image>
+  <text class='score'>{{score}}</text>
+</view> 
+<view class='allmasg'>
+  共{{num}}题，答对{{score}}题，正确率{{correct_rate}}%，满分:{{num}}分
+</view>
+<!--答案  -->
+<view class='answers'>
+  <view class='answers-item' wx:for="{{questions}}" wx:key="key" wx:item-for="item" data-index="{{[index]}}" bindtap='checkitem'>
+    <view class="{{item.result == 1 ? 'true-answer' : 'false-answer'}}">{{index +1}}</view>
+  </view>
+</view>
+<view class='creatcard' bindtap='creatcard'>
+  生成我的打卡日签
+</view>
+<!--课程广告栏  -->
+<image src=''></image>
+<!-- 底部按钮 -->
+<view class='bottom_buttons'>
+  <view class='w11'>
+      <view class='clock' bindtap='analysis'>题目解析</view>
+  </view>
+  <view class='w11'>
+    <view class='practice' bindtap='toclock'>继续练习</view>   
+  </view>
+</view>
+
+<!-- 分享卡片 -->
+<view class='mask' style="width:100%;height:{{clientHeight +'px'}};" wx:if="{{showcard}}" bindtap='hidecard'>
+  <view class='big-card'>
+    <image src='{{imgurl}}' mode='widthFix' class='bag' bindload="imgload" bindtap="previewImage" data-src="{{imgurl}}"></image>
+  </view>
+  <view class='btns'>
+    <button open-type='share' class='share'>分享给好友</button>
+    <view class='saveimg' catchtap='saveimg'>保存图片</view>
+  </view>
+</view>
+
+
+

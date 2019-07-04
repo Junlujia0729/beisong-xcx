@@ -1,0 +1,14 @@
+<!--pages/videolist.wxml-->
+<view class='videolist'>
+  <view class='video-item' wx:for="{{videoes.videoes}}" wx:for-item="item"
+  wx:key="key" data-index='{{index}}' bindtap='playvideo'>
+    <image src='{{item.poster}}' mode="widthFix" style="width:100%;"></image>
+    <view class='videotip'>
+      <text>{{item.title}}</text>
+      <text class='palynum'>{{item.views}}</text>
+    </view> 
+    <view class='desc'>
+        {{item.desc}}
+    </view> 
+  </view>
+</view>

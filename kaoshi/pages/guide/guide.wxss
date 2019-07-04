@@ -1,0 +1,51 @@
+/* pages/home/home.wxss */
+page{
+  font-size: 24rpx;
+  background: #f2f3f4; 
+}
+.guide,guide2{
+  width: 550rpx;
+  height: 100%;
+  position: fixed;
+  background: #f2f3f4;
+  padding: 100rpx;
+  z-index: 2;
+}
+.title{text-align: center;color: #999;font-size: 30rpx;margin-bottom: 100rpx;}
+.title .line{
+  width: 110rpx;
+  height: 1px;
+  background: #d2d2d2;
+  display: inline-block;
+  position: relative;
+  top:-5rpx;
+}
+.title .title-tip{
+  display: inline-block;
+  margin: 0 30rpx;
+}
+.examtype .type-item{
+  display: block;
+  width: 100%;
+  height: 92rpx;
+  background: #fff;
+  color: #333;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 92rpx;
+  border-radius: 10rpx;
+  margin-bottom: 40rpx;
+  border:1px solid #e2e2e2;
+}
+.examtype .type-item-active{
+  background: #3eccb3;
+  border:none;
+  color: #fff;
+}
+.g2{padding: 30rpx 0 50rpx;font-size: 26rpx;color: #999;text-align: center}
+.g2 .g2_t{
+  color: #3eccb3;
+}
+
+
+

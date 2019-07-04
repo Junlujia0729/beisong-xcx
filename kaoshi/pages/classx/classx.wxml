@@ -1,0 +1,117 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class="container" style='padding-bottom:200rpx;'>
+  <view class='class_pic_bg_2'>
+    <view class='vodie-classname'>{{datas.classname}}</view>
+    <view class='vodie-time'>
+      <text class="timestr">{{datas.begintime}}开课</text>
+    </view>
+    <view class="class_sale_price">
+      <text class="price_tt">￥</text><text class="price">{{datas.price}}</text>
+      <text class="orgprice" wx:if="{{datas.ori_price > 0}}" >{{datas.ori_price}}</text>
+    </view>
+  </view>
+  <!-- 老师列表 -->
+  <view class='teacher-list' wx:if="{{datas.teacherlist.length > 0}}">
+    <view class='teacher-header' wx:for="{{datas.teacherlist}}" data-key="{{item.auser}}" wx:for-item="item" wx:key="key" wx:if="{{index < 4}}">
+      <image src='{{item.headimg}}'></image>
+      <text>{{item.teacher}}</text>
+    </view>
+  </view>
+  <view class="seprate-line"></view>
+  <!-- 课程表 -->
+  <view class='classdetail' wx:if="{{classlist.length > 0}}">
+    <text>课程表</text>   
+  </view>
+  <view id="content_slide1" wx:if="{{classlist.length > 0}}">
+    <block wx:for="{{classlist}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+      <view class='item' wx:if="{{idx < 5}}">
+        <navigator wx:if="{{item.iftrial==1}}" hover-class="none" url='../play/play?id={{item.classid}}'>
+          <view class='chapter_name_if'>
+            <view class='chapter_right'>
+                <image src='../../images/z_icon_position_play_off.png'></image>
+            </view>  
+            <view class='chapter_left'>
+              {{idx+1}}.{{item.classname}} 
+              <view class='chapter_time'>{{item.begintime}} - {{item.endtime}}
+                <text class='iftrial-flag'>可试学</text>
+              </view>  
+            </view>                                  
+          </view>
+        </navigator>
+        <view class='chapter_name' wx:else>
+          {{idx+1}}. {{item.classname}} 
+        </view>
+        <view class='chapter_time' wx:if="{{item.iftrial==0}}">
+          {{item.begintime}} - {{item.endtime}}
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="seprate-line"></view>
+  <view class='content'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view >
+    <view class="bottom_fixed_buttons">
+      <view class='w2' wx:if="{{datas.price == 0 || datas.price == '0.00'}}">
+        <navigator url='../mineclass/mineclass?id={{datas.classid}}' class='btn-flag' >
+          <button >立即观看</button>
+        </navigator>
+      </view>
+      <view class='w11' wx:else>
+        <button class='btn-flag' bindtap='appload'>了解更多</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 咨询 -->
+<!-- <view class="contact_btn_new">
+  <button session-from="sobot|{{userInfo.nickname}}_{{classid}}_{{datas.classname}}|{{userInfo.headimgurl}}" open-type="contact" show-message-card="true">
+      <image src="http://imgs.52jiaoshi.com/1517032517.png" mode="widthFix"></image> 
+  </button>
+  <text>咨询</text>
+</view> -->
+
+<!--返回首页  -->
+<!-- <view class="contact_btn" bindtap='retuen' wx:if="{{gohome}}">
+  <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+</view> -->
+
+
+<!--IOS支付  -->
+<view class='mask' bindtap='maskhide' style='height:{{height}}' wx:if="{{appload}}">
+  <view class='code-box'>
+    <view class='mask-title'>下载APP</view>
+    <view class='mask-tip'>下载我爱教师APP，更多精品课程和VIP特权</view>
+    <image src='https://api.52jiaoshi.com/Public/images/app_new.png' class='code'  bindtouchstart='timestart' bindtouchend='timeend' catchtap='saveimg'></image>
+    <view class='tip1'>长按保存图片后，打开微信识别二维码</view>
+
+    <view class='mask-btn' catchtap='stepshow'>
+      <text>如何下载</text>
+      <image src='http://imgs.52jiaoshi.com/1559274259.png'></image>
+    </view>
+    <view class='step-box' wx:if="{{step}}">
+      <view class='left'>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 60rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 430rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 420rpx;'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='right'>
+        <view class='step-title' style='margin-bottom:50rpx;'>第1步：长按保存图片到相册</view> 
+        <view class='step-title'>第2步：打开微信扫一扫</view>
+        <image src='http://imgs.52jiaoshi.com/1559274954.png' mode="widthFix"></image> 
+        <view class='step-title'>第3步：点击相册，选择二维码识别</view>
+        <image src='http://imgs.52jiaoshi.com/1559275026.png' mode="widthFix"></image>
+        <view class='step-title'>第4步：点开链接安装</view>   
+      </view>
+    </view>
+  </view>
+</view>
+
+

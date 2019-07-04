@@ -1,0 +1,2 @@
+/* pages/myquestion/myquestion.wxss */
+@import'../answerarea/answerarea'

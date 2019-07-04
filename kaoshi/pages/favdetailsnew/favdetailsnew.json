@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh":false,
+  "usingComponents": {
+    "question": "../../components/question/question",
+    "comment": "../../components/comment/comment"
+  }
+}

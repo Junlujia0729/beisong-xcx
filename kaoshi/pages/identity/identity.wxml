@@ -1,0 +1,33 @@
+<!--pages/home/home.wxml-->
+<!-- 选择学段 -->
+<view class='guide'>
+  <view class='title'>
+    请选择报考学段
+  </view>
+
+  <view class='examtype'>
+    <text class="type-item {{select_level == item.id ? 'type-item-active' : ''}}"    bindtap='chooseType' data-id="{{item.id}}" data-words="{{item.name}}" wx:for="{{levels}}" wx:for-item="item" wx:key="key">{{item.name}}</text>  
+  </view>
+
+  <!-- 选择学科-->
+  <view class='title'>
+    请选择报考学科
+  </view>
+  <view class='examtype'>
+    <text class="type-item {{select_subject == item.id ? 'type-item-active' : ''}}" bindtap='chooseSubject' data-words="{{item.name}}" wx:for="{{subjects}}" wx:for-item="item" wx:key="key" data-id="{{item.id}}" wx:if="{{item.type == 0}}">{{item.name}}</text>
+    <text class="type-item type-item-active" data-words="{{item.name}}" wx:for="{{subjects}}" wx:for-item="item" wx:key="key" data-id="{{item.id}}" wx:if="{{item.type == 1}}">{{item.name}}</text>    
+    <text class="type-item type-item-none" data-words="{{item.name}}" wx:for="{{subjects}}" wx:for-item="item" wx:key="key" data-id="{{item.id}}" wx:if="{{item.type == 2}}">{{item.name}}</text>  
+  </view>
+
+  <!-- 选择学科-->
+  <view class='title'>
+    请选择报考地区
+  </view>
+  <view class='examtype'>
+    <text class="type-item {{provinceid == item.id ? 'type-item-active' : ''}}" bindtap='chooseProvince' data-words="{{item.name}}" wx:for="{{provincelist}}" wx:for-item="item" wx:key="key" data-id="{{item.id}}" >{{item.name}}</text> 
+  </view>
+  <view class='choose-btn choose-btn-activity' bindtap='choose' wx:if="{{ischoose}}">确认选择</view>
+  <view class='choose-btn' bindtap='choose' wx:else>确认选择</view>
+</view>
+
+

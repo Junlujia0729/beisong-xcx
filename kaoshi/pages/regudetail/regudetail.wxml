@@ -1,0 +1,85 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="dyn_item">
+  <view class="regu_item_head">
+    <view class="regu_item_head_tit">{{regudata.title}}
+</view>
+    <view class="regu_item_head_stat">
+      <text class="left">{{regudata.liulan ? regudata.liulan + '浏览' : ''}}</text>
+      <text class="right">{{regudata.publish_time}}</text>
+    </view>
+  </view>
+  <view class="dyn_item_cont">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view wx:for="{{regudata.file}}" wx:key="key1" wx:for-index="idx1" class="filelist_box" wx:for-item="item" wx:if="{{regudata.file && regudata.file.length >0}}">
+      <view style="border-top:none;" class="filelist_item" bindtap='openFile' data-type="{{item.type}}" data-url='{{item.url}}'>
+        <text>{{item.cname}}</text>
+      </view>
+    </view>
+</view>
+
+<view class='fix_mask' wx:if="{{filelistShow}}" catchtap='changeFilelistShow'>
+  <image class='close_file' src='/images/zgzbd/regu_close_more.png' catchtap='changeFilelistShow'></image>
+  <scroll-view class='filelist' scroll-y="true">
+    <view class="filelist_title">附件列表</view>
+    <view wx:for="{{regudata.file}}" wx:key="key" wx:for-index="idx" class="filelist_box" wx:for-item="item" wx:if="{{regudata.file && regudata.file.length >0}}">
+      <view class="filelist_item" bindtap='openFile' data-type="{{item.type}}" data-url='{{item.url}}'>
+        <text>{{item.cname}}</text>
+      </view>
+    </view>  
+  </scroll-view>
+</view>
+
+<view class="reguoper">
+  <view class="reguoper_item" bindtap='changeFilelistShow' wx:for="{{tabitems}}" wx:for-item="item" wx:key="key" wx:if="{{item.type == 1}}" >
+    <view class="{{index == 0 ? 'noborder' : ''}}"><text>{{item.title}}</text></view>
+  </view>
+  <view class="reguoper_item" bindtap='toClass' wx:for="{{tabitems}}" wx:for-item="item" wx:key="key" wx:if="{{item.type == 2}}" data-classid="{{item.classid}}" >
+    <view class="{{index == 0 ? 'noborder' : ''}}"><text>{{item.title}}</text></view>
+  </view>
+  <view class="reguoper_item" bindtap='teacher' wx:for="{{tabitems}}" wx:for-item="item" wx:key="key" wx:if="{{item.type == 3}}" >
+    <view class="{{index == 0 ? 'noborder' : ''}}"><text>{{item.title}}</text></view>
+  </view>
+</view>
+
+<!-- 简章解读 -->
+<view class='mask' bindtap='maskhide' style='height:{{height}}' wx:if="{{teacher}}">
+  <view class='code-box'>
+    <view class='mask-title'>问老师</view>
+    <view class='mask-tip'>扫码加老师微信，在线指导答疑</view>
+    <image src='{{qrcode}}' class='code'  bindtouchstart='timestart' bindtouchend='timeend' catchtap='saveimg'></image>
+    <view class='tip1'>长按保存图片后，打开微信识别二维码</view>
+    <view class='tip1'>加老师微信咨询</view>
+
+    <view class='mask-btn' catchtap='stepshow'>
+      <text>如何进群</text>
+      <image src='http://imgs.52jiaoshi.com/1559274259.png'></image>
+    </view>
+    <view class='step-box' wx:if="{{step}}">
+      <view class='left'>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 60rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 430rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 420rpx;'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='right'>
+        <view class='step-title' style='margin-bottom:50rpx;'>第1步：长按保存图片到相册</view> 
+        <view class='step-title'>第2步：打开微信扫一扫</view>
+        <image src='http://imgs.52jiaoshi.com/1559274954.png' mode="widthFix"></image> 
+        <view class='step-title'>第3步：点击相册，选择二维码识别</view>
+        <image src='http://imgs.52jiaoshi.com/1559275026.png' mode="widthFix"></image>
+        <view class='step-title'>第4步：加老师好友</view>   
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- <button class="contact_btn" session-from="sobot|{{userInfo.nickname}}_{{regudata.title}}|{{userInfo.headimgurl}}" open-type="contact" show-message-card="true"><image src="http://imgs.52jiaoshi.com/1548817878.png" mode="widthFix"></image></button> -->
+
+<!--返回首页  -->
+<view class="contact_btn" bindtap='retuen' wx:if="{{gohome}}">
+  <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+</view>

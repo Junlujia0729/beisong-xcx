@@ -1,0 +1,16 @@
+/* pages/favlist/favlist.wxss */
+.list-item{
+  padding:0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  border-bottom: 1px solid #eee;
+  background: url('http://imgs.52jiaoshi.com/1560165071.png') no-repeat 97% center;
+  background-size:15rpx 29rpx; 
+}
+.tip{
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+  padding-top: 30rpx;
+}

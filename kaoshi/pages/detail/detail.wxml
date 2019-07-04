@@ -1,0 +1,81 @@
+<!--pages/detail/detail.wxml-->
+<view style='position:fixed;z-index: 999;width:100%;background:#fff;'>
+  <view class="swiper-tab">
+      <view bindtap="clickTab" data-current="0" class="swiper-tab-item {{currentTab == 0 ?'active':''}}">未背 ({{questions_num}})</view>
+      <view bindtap="clickTab" data-current="1" class="swiper-tab-item {{currentTab == 1 ?'active':''}}">已背 ({{dones_num}})</view>
+  </view>
+</view>
+<view style='padding-bottom:98rpx;margin-top:120rpx;'>
+  <swiper hidden="{{currentTab == 1 ? true : false}}" duration="300"
+  bindchange="swiperTab1" current="{{curSwiperItem0}}" circular="true" style="height: {{clientHeight ?clientHeight+'px':'auto'}}">
+    <swiper-item wx:if="{{questions.length == 0 && is_loaded == 1}}">
+      <view class="questions_box_none"><text>您已全部背过，</text><text class="" bindtap='gotoYbg'>点击查看已背过题目</text></view>
+    </swiper-item>
+    <swiper-item wx:for="{{questions}}" wx:for-item="item" wx:key="id">
+      <scroll-view scroll-y="true" bindscrolltolower="onLower" lower-threshold="50" scroll-top="{{item.reciteBox}}" style="height: {{clientHeight ?clientHeight+'px':'auto'}}">
+        <view class="questions_box">
+          <question question="{{item}}" bind:collect="collect" bind:canclefav="canclefav"/>
+        </view>
+        <view class='line'></view>
+        <view class="commentlist" wx:if="{{item.comments && item.comments.length}}">
+          <comment comment="{{comment}}" cindex="{{cindex}}"  bind:replyevent="onReplyEvent" bind:dianzanevent="onDianzanEvent" wx:for="{{item.comments}}" wx:for-item="comment" wx:for-index="cindex" wx:key="id" />
+        </view>
+        <view wx:else class='nocomment' bindtap="addcomment">
+          暂无评论，点击抢沙发。
+        </view>
+        <!-- 加载更多 -->
+        <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <swiper hidden="{{currentTab == 0 ? true : false}}" duration="300" circular="true"
+  bindchange="swiperTab2" current="{{curSwiperItem1}}" style="height: {{clientHeight ?clientHeight+'px':'auto'}}">
+    <swiper-item wx:if="{{dones.length == 0}}" >
+      <view class="questions_box_none"><text>您还没有已背过的题目，</text><text class="" bindtap='gotoWbg'>点击开始背题</text></view>
+    </swiper-item>
+    <swiper-item wx:for="{{dones}}" wx:for-item="item" wx:key="id">
+      <scroll-view scroll-y="true" scroll-top="{{item.reciteBox}}"  bindscrolltolower="onLower" style="height: {{clientHeight ?clientHeight+'px':'auto'}}">
+        <view class="questions_box">
+          <question question="{{item}}" bind:collect="collect" bind:canclefav="canclefav"/>
+        </view>
+        <view class='line'></view>
+        <view class="commentlist" wx:if="{{item.comments && item.comments.length}}">
+          <view class='Qt'>
+              <text class='sbox'></text>看看大家说什么<text class='sbox'></text>
+          </view>
+          <comment comment="{{comment}}" cindex="{{cindex}}" bind:replyevent="onReplyEvent" bind:dianzanevent="onDianzanEvent" wx:for="{{item.comments}}" wx:for-item="comment" wx:for-index="cindex" wx:key="id" />
+        </view>
+        <view wx:else class='nocomment' bindtap="addcomment">
+          暂无评论，点击抢沙发。
+        </view>
+        <!-- 加载更多 -->
+        <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 底部按钮 -->
+<view class='footer-btn'>
+  <view class='footer-btn-r'>
+    <view class="jump btn-item {{currentTab == 0 ? 'active' : 'hidden'}}" bindtap='jumpnext'>
+      <image src='../../images/zgzbd/jump.png'></image>
+      <text>先跳过</text>
+    </view>
+    <view class="remember btn-item {{currentTab == 0 ? 'active' : 'hidden'}}" bindtap='remember' dada-questionid='{{question.id}}'>
+      <image src='../../images/zgzbd/remember.png'></image>
+      <text>记住了</text>
+    </view>
+  </view>
+  <!-- 评论 -->
+  <!-- <input style='text' placeholder="我要说..." bindtap="addcomment" class='addcomment' placeholder-style="color:#333;"></input> -->
+  <text style='text' bindtap="addcomment" class="addcomment {{currentTab == 0 ? '' : 'addcoment-r'}}">我要说...</text>
+</view> 
+<!-- 背 -->
+<view class='recite-btn' bindtouchend='reciteEnd' bindtouchstart='recite'
+wx:if="{{q_type != 1}}">
+    </view>  
+
+

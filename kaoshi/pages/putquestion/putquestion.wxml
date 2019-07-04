@@ -1,0 +1,61 @@
+<!--pages/putquestion/putquestion.wxml-->
+<view class='container' wx:if="{{!showresult}}">
+  <form report-submit="true" bindsubmit="submitQuestion">
+    <!-- <view class='select_box' id='select_box'>
+      <view class='select' catchtap='selectTap'>
+        <text class='select_text'>{{selectData[index]}}</text>
+        <image class='select_img {{show&&"select_img_rotate"}}' src='http://imgs.52jiaoshi.com/1559637713.png'></image>
+      </view>
+      <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+      </view>
+    </view>   -->
+    <view class='questiontype'>
+      <view class='itme-1'>选择题型：</view>
+      <view class="{{type == index+1 ? 'active' : ''}} item" wx:for='{{selectData}}' wx:key='key' data-index='{{index+1}}' wx:for-item="item" bindtap='select'>{{item}}</view>
+      
+    </view>
+    <textarea placeholder="请输入题干..." placeholder-style="color:#ddd;font-size:16px;" show-confirm-bar maxlength="-1" class='Q-title' name="title"></textarea>
+
+    <!--选择图片  -->
+    <view class="image_box" wx:if="{{comment_img_url.length >= 1}}">
+        <view class="select_box" wx:for="{{comment_img_url}}" wx:for-index="idx" wx:key="key">
+          <image class="select" src="{{item}}" mode="aspectFill"></image>
+          <image class="close active" src="/images/publish_picture_delete.png" bindtap='deleteImg' data-index="{{idx}}" mode='widthFix'></image>
+        </view>
+        <view class="select_box" wx:if="{{comment_img_url.length < 3}}">
+          <image class="select" src="http://imgs.52jiaoshi.com/1559639327.png" bindtap='selectImg' mode="aspectFill"></image>
+        </view>
+    </view>
+
+    <!--图片按钮  -->
+    <view class='content'>
+      <view class='up-btn'>
+        <view class='btn img-btn' wx:if="{{comment_img_url.length == 0}}">
+          <image src='http://imgs.52jiaoshi.com/1530776132.png' bindtap='selectImg'></image>
+        </view> 
+      </view> 
+    </view>
+
+    <!-- 选项 -->
+    <view class='option-box'>
+      <view class='optionitem'><text>选项A</text><input name="A"></input></view>
+      <view class='optionitem'><text>选项B</text><input name="B"></input></view>
+      <view class='optionitem'><text>选项C</text><input name="C"></input></view>
+      <view class='optionitem'><text>选项D</text><input name="D"></input></view>
+      <view class='optionitem'><text>选项E</text><input name="E"></input></view>
+      <view class='optionitem'><text>选项F</text><input name="F"></input></view>
+    </view>
+
+    <button form-type="submit" class="submit">提交</button>
+  </form>
+</view>
+
+<view class='container' wx:if="{{showresult}}">
+  <image src='http://imgs.52jiaoshi.com/1559641599.png' class='success-icon'></image>
+  <view class='tip'>提交成功</view>
+  <view class='w'>
+      老师回复后，会通过我爱教师小程序给您发送通知。您可在“我的问题”里面查看您提问的问提
+  </view>
+  <view class="submit" bindtap='tomineques'>我知道啦</view>
+</view>

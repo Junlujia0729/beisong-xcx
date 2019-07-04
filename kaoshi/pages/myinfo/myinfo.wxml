@@ -1,0 +1,81 @@
+<view class="container">
+  <view class='userinfo' wx:if="{{headimgurl}}">
+    <image src='{{headimgurl}}' class='userheader'></image>
+    <text class='nickname'>{{nickname}}</text>
+  </view> 
+  <view style='text-align:center;margin:50rpx 0;' wx:if="{{!headimgurl}}">
+    <button  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" withCredentials="false" class='getinfo'>授权登录</button>
+  </view>
+  
+  <view class='line'></view>
+  <view class="body">
+    <scroll-view scroll-y="true" height="100%">
+      
+        <navigator url="../favlist/favlist">
+          <view class="item">
+            <view class="item-info">
+              <text class="item-name" >我的收藏</text>
+              <image class="item-img" src="http://imgs.52jiaoshi.com/1559180712.png" mode="aspectFill"/>
+            </view>
+          </view>
+        </navigator>
+        <navigator url="../bind/bind" wx:if="{{!mobile}}">
+          <view class="item">
+            <view class="item-info">
+              <text class="item-name" >绑定账号</text>
+              <image class="item-img" src="http://imgs.52jiaoshi.com/1559180712.png" mode="aspectFill"/>
+            </view>
+          </view>
+        </navigator>
+        <view wx:else>
+          <view class="item">
+            <view class="item-info">
+              <text class="item-name" >绑定账号</text><text class='mobile'>已绑定{{mobile}}</text>
+            </view>
+          </view>
+        </view>
+        <view bindtap='appload'>
+          <view class="item">
+            <view class="item-info-no item-info">
+              <text class="item-name" >我爱教师网APP下载</text>
+            </view>
+          </view>
+        </view>
+    </scroll-view>
+  </view>
+</view>
+
+<view class='mask' bindtap='maskhide' style='height:{{height}}' wx:if="{{appload}}">
+  <view class='code-box'>
+    <view class='mask-title'>下载APP</view>
+    <view class='mask-tip'>下载我爱教师APP，更多精品课程和VIP特权</view>
+    <image src='https://api.52jiaoshi.com/Public/images/app_new.png' class='code'  bindtouchstart='timestart' bindtouchend='timeend' catchtap='saveimg'></image>
+    <view class='tip1'>长按保存图片后，打开微信识别二维码</view>
+
+    <view class='mask-btn' catchtap='stepshow'>
+      <text>如何下载</text>
+      <image src='http://imgs.52jiaoshi.com/1559274259.png'></image>
+    </view>
+    <view class='step-box' wx:if="{{step}}">
+      <view class='left'>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 60rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 430rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 420rpx;'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='right'>
+        <view class='step-title' style='margin-bottom:50rpx;'>第1步：长按保存图片到相册</view> 
+        <view class='step-title'>第2步：打开微信扫一扫</view>
+        <image src='http://imgs.52jiaoshi.com/1559274954.png' mode="widthFix"></image> 
+        <view class='step-title'>第3步：点击相册，选择二维码识别</view>
+        <image src='http://imgs.52jiaoshi.com/1559275026.png' mode="widthFix"></image>
+        <view class='step-title'>第4步：点开链接安装</view>   
+      </view>
+    </view>
+  </view>
+</view>
+
+

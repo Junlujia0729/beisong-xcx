@@ -1,0 +1,17 @@
+<!--pages/moreques.wxml-->
+<view class='ques-type' style='margin-top:0'>
+  <view class='ques-t-title'>
+    {{title}}
+  </view>
+  <view class='ques-box' >
+    <view class='ques-item' data-task="{{item1.id}}" wx:for="{{tasks_list}}" wx:for-item="item1" wx:key="key1">
+      <form report-submit='true' bindsubmit='submitformid' >
+        <button class='submitformid'  form-type='submit'>
+          <image src='{{item1.icon}}' mode="widthFix"></image>
+          <text>{{item1.title}}</text>
+          <input name='task' value='{{item1.id}}' type='hidden' style='opacity:0;display:none;'></input>
+        </button>
+      </form>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,212 @@
+/* pages/punchclock/punchclock.wxss */
+
+page{
+  font-size: 28rpx;
+}
+.top{
+  padding: 30rpx 30rpx 80rpx 30rpx;
+  background: #f3f4f5;
+  border-radius: 0 0 15% 15%;
+}
+.share{
+  float: right;
+  background: none;
+  padding-left:0;
+  padding-right:0;
+  border-radius:30rpx;
+  font-size: 26rpx;
+  border: 1px solid #666;
+  width: 140rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #666;
+}
+.share::after{
+  border:none;
+}
+.top-name{
+  font-size: 32rpx;
+  line-height: 32rpx;
+  color: #232323;
+  display: inline-block;
+  margin-bottom: 40rpx;
+  font-weight: bold;
+}
+.message{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.message-item{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+}
+.message-item text{
+  font-size: 30rpx;
+  color: #999999;  
+}
+.message-item .num{
+  display: block;
+  color: #3eccb3;
+  font-weight: bold;
+}
+
+.message-center{
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.calendar-box{
+  position: relative;
+  top:-40rpx;
+}
+.calendar{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;  
+  width: 670rpx;
+  height: 210rpx;
+  box-shadow: 0 3px 4px 2px rgba(139,156,150,0.15);
+  border-radius: 4px;
+  margin:0 auto;
+  background: #fff;
+  padding: 40rpx 10rpx;
+}
+.calendar-item{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+}
+.calendar-item-on .week{
+  color: #3eccb3;
+}
+.calendar-item-on .date{
+  background: #3eccb3;
+  color: #fff;
+  border-radius: 50%;
+}
+.mineCalendar{
+  position: absolute;
+  right: 80rpx;
+  bottom: 20rpx;
+}
+.mineCalendar text{
+  font-size: 24rpx;
+  color: #222;
+  padding-right: 10rpx;
+}
+.mineCalendar image{
+  width: 16rpx;
+  height: 22rpx;
+  position: relative;
+  bottom: -4rpx;
+}
+.date{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 40rpx auto 0;
+  display: block;
+  line-height: 50rpx;
+}
+.date-img{
+  display: block;
+  width: 66rpx;
+  height: 66rpx;
+  margin: 36rpx auto 0;
+  background: url('http://imgs.52jiaoshi.com/1559187366.png') no-repeat;
+  background-size:100% 100%; 
+}
+.week{
+  display: block;
+}
+.msg{
+  font-size: 20rpx;
+  color: #999;
+  line-height: 20rpx;
+  
+}
+.today{
+  position: relative;
+  top:-10rpx;
+}
+.msg-1{
+  font-size: 20rpx;
+  color: #999;
+  position: relative;
+  top:-10rpx;
+}
+.content{
+  padding: 30rpx 30rpx 90rpx 30rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+.clock-box{
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  height: 30%;
+  left: 0;
+  bottom:0;
+  padding-top: 80rpx;
+  background: linear-gradient( rgba(255,255,255,0.92), rgba(255,255,255,1));
+}
+.tip{
+  font-size: 24rpx;
+  color: #3ECCB3;
+  text-align: center;
+  padding-bottom: 50rpx;
+}
+.clock-btn button{
+  background: none;
+  padding-left:0;
+  padding-right:0;
+  border-radius:80rpx;
+  font-size: 36rpx;
+  width: 670rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background: #3eccb3;
+}
+.share::after{
+  border:none;
+}
+.footer{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 90rpx;
+  line-height: 90rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.footer-btn{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;   
+  background: #fff;
+}
+.remember{
+  background: #3eccb3;
+  color: #fff;
+}
+.title{
+  padding-left: 30rpx;
+  font-size: 32rpx;
+  padding-bottom: 20rpx;
+}
+.practice{
+  border-top:1px solid #ddd;
+}

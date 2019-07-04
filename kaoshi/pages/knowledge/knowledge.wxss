@@ -1,0 +1,212 @@
+/* pages/knowledge/knowledge.wxss */
+.container{
+  padding-left: 60rpx;
+  padding-top: 60rpx;
+  font-size: 28rpx;
+}
+.title{
+  border-bottom:1px solid #e5e5e5;
+  padding-bottom: 10rpx;
+  height:40rpx;
+  
+}
+.name{
+  font-size: 40rpx;
+  line-height: 40rpx;
+  color: #333;
+  display: inline-block;
+  position: relative;
+  top:-5rpx;
+}
+.line{
+  width: 8rpx;
+  height: 40rpx;
+  background: #3eccb3;
+  display: inline-block;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+.content{
+  margin-bottom: 150rpx;
+  padding-right: 20rpx;
+  padding-top: 30rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 144rpx;
+  background: #F8FAFA;
+  width: 100%;
+}
+.footer-center{
+  display: flex;
+  width: 76%;
+  margin: 0 auto;
+}
+.footer-item{
+  flex: 1;
+  margin-top: 10rpx;
+}
+.footer .footer-btn{
+  margin-top: 22rpx;
+}
+
+.footer .footer-btn text{
+  position: relative;
+  top:-10rpx;
+}
+.footer-item{
+  text-align: center;
+}
+.footer-item image{
+  width: 76rpx;
+  height: 76rpx;
+  display: block;
+  margin: 0 auto;
+}
+.footer-item .remember{
+  width: 108rpx;
+  height: 110rpx;
+}
+.footer-item text{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #666666;
+  position: relative;
+  top:-20rpx;
+}
+.collect{
+  position: absolute;
+  left:20rpx;
+  top:60rpx;
+  width: 7  0rpx;
+  height: 80rpx;
+  text-align: center;
+}
+.collect image{
+  width: 28rpx;
+  height: 26rpx;
+  display: block;
+  margin: 0 auto;
+}
+.collect text{
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.mask {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  /* display: none; */
+} 
+.code-box{
+  width: 640rpx;
+  background: #fff;
+  position: absolute;
+  top:300rpx;
+  left: 55rpx;
+  padding: 40rpx 0;
+  border-radius: 20rpx;
+  z-index: 101;
+}
+.mask-title{
+  font-size: 36rpx;
+  color: #222222;
+  line-height:36rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+.mask-tip{
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #222222;
+  padding-bottom: 30rpx;
+  text-align: center;
+}
+.code{
+  width: 240rpx;
+  height: 240rpx;
+  display: block;
+  margin: 0 auto 20rpx;
+}
+.tip1{
+  font-size:24rpx;
+  color: #999;
+  line-height: 30rpx;
+  text-align: center;
+}
+.mask-btn{
+  width: 220rpx;
+  height: 70rpx;
+  margin: 30rpx auto 0;
+  background: #3eccb3;
+  border-radius: 70rpx;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  text-align: left;
+  padding-left: 70rpx;
+}
+.mask-btn image{
+  width: 24rpx;
+  height: 12rpx;
+  display: inline-block;
+  margin-left: 10rpx;
+}
+.step-box{
+  padding: 0 75rpx;
+  margin-top: 70rpx;
+}
+.step-box .left{
+  float:left;
+  width: 15rpx;
+
+}
+.step-box .right{
+  margin-left: 35rpx;
+}
+.step-box .right image{
+  width: 100%;
+}
+.step-title{
+  font-size: 24rpx;
+  color: #333;
+  line-height: 24rpx;
+  margin-bottom: 20rpx;
+}
+.dot{
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background: #3eccb3;
+}
+.step-line{
+  width: 2px;
+  
+  background: #e5e5e5;
+  margin-left: 4rpx;
+}
+.collect .collect_already{
+  color:#ff6b49;
+}
+
+.ask button{
+  width: 76rpx;
+  height: 76rpx;
+  padding: 0;
+  background-color:transparent;
+  border:none;
+  line-height: 50rpx;
+}
+.ask button::after{
+  content: '';
+  border: 0
+}

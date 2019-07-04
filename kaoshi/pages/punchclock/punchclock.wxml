@@ -1,0 +1,63 @@
+<!--pages/punchclock/punchclock.wxml-->
+<scroll-view scroll-y="{{scroll}}" scroll-top="{{scrollHeight}}" style="height: {{clientHeight ?clientHeight+'px':'auto'}}">
+<view class='top'>
+  <text class='top-name'>{{datas.column_redis.title}}</text> 
+  <!-- <button type='share' class='share'>分享给好友</button> -->
+  <view class='message'>
+    <view class='message-item'>
+      <text class='num'>{{datas.column_redis.num}}</text>
+      <text>人参加</text>
+      </view>
+    <view class='message-item'>
+      <text class='num'>{{datas.num1}}</text>
+      <text>已进行(天)</text>
+    </view>
+    <view class='message-item'>
+      <text class='num'>{{datas.num2}}</text>
+      <text>您已打卡(天)</text>
+    </view>
+  </view>
+</view>
+
+<view class='calendar-box'>
+  <view class='calendar'>
+    <view class="calendar-item  {{item.active == 1 ? 'calendar-item-on' : ''}}" wx:for="{{datas.times}}" wx:for-item="item" wx:key="key" wx:if="{{index < 4}}" bindtap="change" data-id="{{item.classid}}" data-type="{{item.type}}" data-index="{{index}}">
+      <text class='week'>{{item.week}}</text>
+      <text class='date' wx:if="{{item.type == 0}}">{{item.date}}</text>
+      <text class='date-img' wx:else></text>
+      <text class='msg' wx:if="{{index != 3 && item.type == 0 && item.classid >0}}">未打卡</text>
+      <text class='msg' wx:if="{{index != 3 && item.type == 0 && item.classid <0}}"></text>
+      <text class='msg-1' wx:if="{{index != 3 && item.type == 1}}">{{item.date}}</text>
+      <text class='msg today' wx:if="{{index == 3}}">今天</text>
+    </view>
+    <view class="calendar-item {{item.active == 1 ? 'calendar-item-on' : ''}}" wx:for="{{datas.times}}" wx:for-item="item" wx:key="key" wx:if="{{index > 3}}">
+      <text class='week'>{{item.week}}</text>
+      <text class='date' style='color:#999'>{{item.date}}</text>
+    </view>
+  </view>
+  <view class='mineCalendar' bindtap='mineCalendar'><text>我的打卡日历</text><image src='http://imgs.52jiaoshi.com/1559185715.png'></image></view>
+</view>
+
+<view class='title'>打卡主题--{{details.title}}</view>
+
+<view class='content'>
+  <rich-text nodes="{{content}}"></rich-text> 
+</view>
+<view wx:if="{{is_clock == 0}}" class='clock-box'>
+  <view class='tip' wx:if="{{clocktype == 0}}">点击我要打卡很开全文阅读</view>
+  <view class='tip' wx:else>您已错过打卡时间，可点击学习</view>
+  <form bindsubmit="submitformid" report-submit="true" wx:if="{{clocktype == 0}}">
+    <view id="clock_btn_now" class='clock-btn'>  
+      <button form-type='submit'>我要打卡</button>
+    </view>
+  </form>
+  <view id="clock_btn_now" class='clock-btn' wx:else bindtap='learn'>  
+    <button form-type='submit'>我要学习</button>
+  </view>
+</view>
+</scroll-view>
+<view class='footer'>
+  <view class='footer-btn remember' bindtouchend='reciteEnd' bindtouchstart='recite'>背一背</view>
+  <view class='footer-btn practice' bindtap='practice' wx:if="{{details.overdue == 1}}">做题</view>
+  <view class='footer-btn practice' bindtap='analysis' wx:if="{{details.overdue == 2}}">题目及解析</view>
+</view>

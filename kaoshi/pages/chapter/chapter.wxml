@@ -1,0 +1,26 @@
+<!--pages/chapter/chapter.wxml-->
+<view class='top'>
+  <view class='top-item'>已掌握{{master_num}}</view>
+  <view class='top-item'>
+    <text>未掌握{{master_no}}</text>
+    <!-- <text>掌握考点</text> -->
+  </view>
+  <!-- <view class='top-item'>
+    刷题
+  </view> -->
+</view>
+<view class='practice'>
+  <view class='subject-item' wx:for="{{datas}}" wx:for-item="item" wx:key="key"  bindtap='gotolist' data-name="{{item.name}}" data-id="{{item.id}}" data-lock='{{item.dot_lock}}'>
+    <view class='subject-title'>{{index+1}}、{{item.name}}</view>
+    <view class='subject-lable'>
+      <image src='http://imgs.52jiaoshi.com/1558505742.png'></image>
+      <text class='lable-2'>共{{item.dot_count}}道</text>
+    </view>
+    <!-- 是否练习 -->
+    <view class="practice-sign" wx:if="{{item.lastpractice == 1}}">上次练习</view>
+    <image src='http://imgs.52jiaoshi.com/1558506940.png' class='ins'></image>
+    <image src='http://imgs.52jiaoshi.com/1560503893.png' wx:if="{{item.dot_lock == 1}}" class='lock'></image>
+  </view>
+  
+</view>
+

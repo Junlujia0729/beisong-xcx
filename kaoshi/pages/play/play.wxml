@@ -1,0 +1,3 @@
+
+<web-view src="{{url}}" wx:if="{{!type}}"></web-view>
+<video src="{{url}}" controls  poster="{{video.poster}}" autoplay='true' wx:if="{{type}}"></video>

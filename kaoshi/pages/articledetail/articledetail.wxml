@@ -1,0 +1,27 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <view class='title'>{{items.title}}</view> 
+  <view class="date">{{items.createtime}}</view> 
+  <view class="content">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view> 
+  <!-- 附件 -->
+  <view class='download' wx:for="{{components}}" wx:key="key" wx:for-item="item"
+   wx:if="{{item.type == 0}}" data-url="{{item.url}}" bindtap='openFile' data-type="{{item.type}}">
+    <view>{{item.cname}}</view>
+    <text>{{item.value}}</text>  
+    <image src='http://imgs.52jiaoshi.com/1535956131.png' mode="widthFix"></image>
+  </view>
+  <!-- 大课 -->
+  <view class='lessons' wx:for="{{components}}" wx:key="key" wx:for-item="item"
+   wx:if="{{item.type == 1}}" data-classid='{{item.value}}'>
+    <image src='{{item.url}}' mode="widthFix"></image>
+    <text class='class_sign'>课程推荐</text>
+  </view>
+  <!-- 小课 -->
+  <!-- <view class='class_video' wx:for="{{components}}" wx:key="key" wx:for-item="item"
+   wx:if="{{item.type == 2}}" data-classid='{{item.value}}'>
+    <image src='{{item.url}}'  class='bag'></image>
+    <image src='http://imgs.52jiaoshi.com/1535959275.png' mode="widthFix" class='play_btn'></image>
+  </view> -->
+</view>

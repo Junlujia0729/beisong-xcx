@@ -1,0 +1,125 @@
+/* pages/answerarea/answerarea.wxss */
+.top{
+  display: flex;
+  display: -webkit-flex;
+  height: 50rpx;
+  padding: 36rpx 0;
+  width: 80%;
+  margin: 0 auto;
+}
+.topitem{
+  flex: 1;
+  -webkit-box-flex: 1;
+  line-height:50rpx;
+
+}
+.topitem image{
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+}
+.topitem text{
+  font-size: 30rpx;
+  color: #222222;
+  display: inline-block;
+  margin-left: 10rpx;
+  line-height: 30rpx;
+  position: relative;
+  top:-5rpx;
+}
+.line{
+  height: 20rpx;
+  background: #F5F6F8;
+}
+.questions_box{
+  padding:40rpx 30rpx;
+  border-bottom:1px solid #eee;
+}
+.Q-title{
+  font-size: 30rpx;
+  color: #333;
+  background: #fff;
+  line-height: 46rpx;
+}
+.q-type{
+  display: inline-block;
+  border: 1px solid #3ECCB3;
+  border-radius: 2px;
+  padding: 2rpx 5rpx;
+  font-size: 22rpx;
+  color: #3ECCB3;
+  margin-right: 20rpx;
+  line-height: 24rpx;
+}
+
+.qu_answer_info{
+  font-size: 30rpx;
+  color: #333;
+  line-height: 30rpx;
+  padding: 20rpx 0;
+  position: relative;
+}
+.qu_answer_letter {
+  display: inline-block;
+  margin-right: 5rpx;
+}
+.qu_answer_content{
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 27rpx;
+    overflow: hidden;
+    vertical-align: middle;
+    width:85%;
+
+}
+rich-text{
+  display: inline-block;
+  position: relative;
+}
+.Q-title rich-text{
+  margin-left: 5rpx;
+  line-height: 60rpx;
+  font-size: 32rpx;
+  letter-spacing:2px;
+  font-weight: normal;
+}
+.btns{
+  position: relative;
+  height: 32rpx;
+  margin-top: 20rpx;
+}
+.sign{
+  position: absolute;
+  left: 0;
+}
+.comment-btn{
+  position: absolute;
+  right: 115rpx;
+}
+.like-btn{
+  position: absolute;
+  right: 0;
+}
+.btns .icon{
+  width: 32rpx;
+  height: 32rpx;
+  display: inline-block;
+  position: relative;
+  bottom:-4rpx;
+}
+.btns text{
+  font-size: 24rpx;
+  color: #222;
+  display: inline-block;
+  margin-left:10rpx;
+}
+.sign text{
+  color: #3ECCB3;
+}
+.btns .u_like_ac{
+  color: #ff6b49;
+}
+.imglist{
+  margin: 40rpx 0 20rpx;
+}

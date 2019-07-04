@@ -1,0 +1,195 @@
+
+/*每日一练  */
+page{font-size: 28rpx;}
+.line{height: 20rpx;background:#f3f4f5;}
+.cir-border{
+  border: 1px solid #ddd;
+  width: 312rpx;
+  height: 312rpx;
+  border-radius: 50%;
+  margin:40rpx auto 0;
+}
+.cir{   
+  position: relative;
+  left:-268rpx;
+  top:-56rpx;  
+}  
+  
+.top{  
+  text-align: center  
+}  
+  
+.cc{      
+   margin-top: 20rpx;  
+   font-size: 90rpx;
+   color: #333;     
+}
+.cc text{font-size: 32rpx;display: inline-block;margin-left: 20rpx;}
+.cc-t{
+  margin-top: 80rpx; 
+  color: #999;
+  font-size: 32rpx;
+}  
+.answers{padding:40rpx 25rpx 0;overflow: hidden;}
+.answers-item{width:100rpx;height: 100rpx;text-align: center;float: left;padding: 20rpx; }
+.answers-item text{color: #333;display: inline-block;padding-top: 10rpx;font-size: 24rpx;max-width: 70rpx;text-align: center;}
+.true-answer,.false-answer,.no-answer{
+  width: 70rpx;
+  height: 70rpx;
+  background: #3eccb3;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70rpx;
+  margin-left: 17.5rpx;
+}
+.no-answer{
+  background: none;
+  border:1px solid #3eccb3;
+  color: #3eccb3;
+}
+.false-answer{
+  background: #ff5a5a;  
+}
+
+.share::after{
+  border:none;
+}
+
+.bottom_buttons{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color: #fff;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+}
+.bottom_buttons view.w11{
+  flex: 1;
+  height: 98rpx;
+}
+.bottom_buttons view.w11 view{
+  line-height: 98rpx;
+  text-align: center;
+}
+.bottom_buttons view.w11 .clock{background: #3eccb3;color: #fff;
+font-size: 34rpx;}
+.bottom_buttons view.w11 .practice{background: #ff904d;color: #fff;}
+.dyn_comment_item:last-child{margin-bottom: 100rpx;}
+
+
+.resulttopTip{
+  width: 691rpx;
+  height: 319rpx;
+  background: url('http://imgs.52jiaoshi.com/1560742571.png') no-repeat center center;
+  background-size:100% 100%;
+  margin: 0 auto; 
+  padding-top: 50rpx;
+  position: relative;
+}
+.topTip{
+  font-size: 36rpx;
+  color: #222;
+  font-weight: bold;
+  padding-bottom: 20rpx;
+  line-height: 36rpx;
+  text-align: center;
+}
+.topTip1{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 24rpx;
+  text-align: center;
+}
+.rusulticon{
+  width: 282rpx;
+  height: 295rpx;
+  display: block;
+  margin: 0 auto;
+}
+.allmasg{
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 34rpx;
+}
+.score{
+  position: absolute;
+  top:216rpx;
+  left: 325rpx;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+}
+.creatcard{
+  width: 350rpx;
+  height: 80rpx;
+  background: #ededed;
+  line-height: 80rpx;
+  color: #f87956;
+  text-align: center;
+  border-radius: 80rpx;
+  margin: 0 auto;
+}
+
+.mask{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
+  position: fixed;
+  top:0;
+  z-index: 10;
+}
+.big-card{
+  width: 540rpx;
+  height: 822rpx;
+  position: fixed;
+  left:50%;
+  top:120rpx;
+  margin-left: -270rpx;
+}
+.bag{
+  width: 100%;
+}
+
+.hideloading{
+  display: none;
+}
+.btns{
+  position: fixed;
+  bottom: 50rpx;
+  left:105rpx;
+  width: 540rpx;
+  height: 80rpx;
+}
+.saveimg{
+  width: 260rpx;
+  height: 80rpx;
+  background: #ed5541;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  float: right;
+}
+
+.share{
+  float: left;
+  background: none;
+  padding-left:0;
+  padding-right:0;
+  border-radius:80rpx;
+  font-size: 32rpx;
+  width: 260rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #fff;
+  color:#333;
+}
+.share::after{
+  border:none;
+}

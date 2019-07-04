@@ -1,0 +1,71 @@
+<!--pages/answerarea/answerarea.wxml-->
+<view class='top'>
+  <view class='topitem' style='border-right:1px solid #e5e5e5;padding-right:50rpx;  text-align:right;' bindtap='myquestion'>
+    <image src='http://imgs.52jiaoshi.com/1559630215.png'></image>
+    <text>我的问题</text>
+  </view>
+  <view class='topitem' bindtap='putquestion' style='padding-left:50rpx;'>
+    <image src='http://imgs.52jiaoshi.com/1559630215.png'></image>
+    <text>提问</text>
+  </view>
+</view>
+<view class='line'></view>
+
+<!-- 题目 -->
+<view class='questions_box' wx:for="{{datas}}" wx:for-item="item" wx:key="key" >
+  <view class='Q-title' bindtap='todetail' data-id='{{item.id}}'>
+    <text class='q-type' wx:if="{{item.type == 1}}">单选题</text>
+    <text class='q-type' wx:if="{{item.type == 2}}">多选题</text>
+    <text class='q-type' wx:if="{{item.type == 3}}">判断题</text>
+    {{item.title}}
+  </view>
+  <view class='imglist' style='max-height:350px;overflow-y:hidden;'>
+    <image src='{{item1}}' bindload="cmtImageLoad" bindtap='clickCmtImage' data-index="index" data-pid="{{item.id}}" wx:for="{{item.imgarr}}" wx:key="key" data-ori="{{item1}}" wx:for-item="item1" style="{{item.imgarr.length > 1 ? 'width:160rpx;height:160rpx;margin-right:20rpx' : ''}}"></image>
+  </view>
+  
+  <view class='question_cont' bindtap='todetail' data-id='{{item.id}}'>
+    <view class='qu_answer_info'>
+      <text class='qu_answer_letter'>A.</text>
+      <text class='text'>{{item.item_a}}</text>
+    </view>
+    <view class='qu_answer_info'>
+      <text class='qu_answer_letter'>B.</text>
+      <text>{{item.item_b}}</text>
+    </view>
+    <view class='qu_answer_info' wx:if="{{item.item_c}}">
+      <text class='qu_answer_letter'>C.</text>
+      <text>{{item.item_c}}</text>
+    </view>
+    <view class='qu_answer_info' wx:if="{{item.item_d}}">
+      <text class='qu_answer_letter'>D.</text>
+      <text>{{item.item_d}}</text>
+    </view>
+    
+    <view class='qu_answer_info' wx:if="{{item.item_e}}">
+      <text class='qu_answer_letter'>E.</text>
+      <text>{{item.item_e}}</text>
+    </view>
+    <view class='qu_answer_info' wx:if="{{item.item_f}}">
+      <text class='qu_answer_letter'>F.</text>
+      <text>{{item.item_f}}</text>
+    </view>
+  </view>
+  <view class='btns'>
+    <view class='sign' wx:if="{{item.managerid}}">
+      <image src='http://imgs.52jiaoshi.com/1559636179.png' class='icon'></image>
+      <text>老师已作答</text>
+    </view>
+    <view class='comment-btn'>
+      <image src='http://imgs.52jiaoshi.com/1559636198.png' class='icon'></image>
+      <text>{{item.replynum}}</text>  
+    </view>
+    <view class='like-btn' bindtap="like" data-id='{{item.id}}' data-index='{{index}}' data-likenum='{{item.likenum}}' wx:if="{{item.like_type == 0}}">
+      <image src='{{item.likeimg}}' class='icon'></image>
+      <text >{{item.likenum}}</text>  
+    </view>
+    <view class='like-btn' data-id='{{item.id}}' data-index='{{index}}' wx:else>
+      <image src='{{item.likeimg}}' class='icon'></image>
+      <text class="{{item.like_type ? 'u_like_ac' : ''}}">{{item.likenum}}</text>  
+    </view>
+  </view>
+</view>

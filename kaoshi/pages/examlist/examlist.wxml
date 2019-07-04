@@ -1,0 +1,28 @@
+<!--pages/chapter/chapter.wxml-->
+<view class='container'>
+  <!-- 知识点 -->
+  <view class='item' wx:for="{{datas}}" wx:for-item="item" wx:key="key">
+    <view class='name1' bindtap='slideup' wx:if="{{item.show == 1}}" data-index="{{index}}" >
+      {{item.name}}
+      <view class='total'><text class='num-sign'>{{item.num}}</text>/{{item.total}}</view>
+    </view>
+    <view class='name' bindtap='slidedown' data-index="{{index}}" data-lock='{{item.dot_lock}}' wx:else>
+      {{item.name}}
+      <view class='total'><text class='num-sign'>{{item.num}}</text>/{{item.total}}</view>
+    </view>
+    <view class="practice-sign" wx:if="{{item.show != 1 && item.lastpractice ==1}}">上次练习</view>
+    <image src='http://imgs.52jiaoshi.com/1560503893.png' wx:if="{{item.dot_lock == 1 && item.show == 0}}" class='lock'></image>
+    <!-- 小节 -->
+    <view class='examlist' wx:if="{{item.show == 1 && item.dot_lock == 0}}">
+      <view class='examlist-item' wx:for="{{item.dots}}" wx:for-item="item1" wx:key="key1" wx:index="index" data-name="{{item1.name}}" data-id="{{item1.id}}" data-listid="{{item.id}}"
+      bindtap='gotoknowledge'>
+        <view class='examname'>{{index+1}}、{{item1.name}}</view>
+        <text class='tag'>未掌握</text>
+        <image src='http://imgs.52jiaoshi.com/1558506940.png' class='ins'></image>
+        <view class="practice-sign-item" wx:if="{{item1.lastpractice ==1}}">上次练习</view>
+        
+      </view>
+    </view>
+  </view>
+</view>
+

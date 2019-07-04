@@ -1,0 +1,64 @@
+<!--pages/bind/bind.wxml-->
+<view class='bindpage'>
+  <view class='tip1'>本栏目为教师资格证系统班学员专属</view>
+  <view class='tip2'>如果您是系统班学员，请绑定您的账号</view>
+
+  <form bindsubmit="checkmobile" report-submit="true">
+    <view class="container">
+      <view class='userinfo'>
+        <view class='nickname'>
+          <input placeholder="手机号" id="mobile" value='' type='number' 
+        name="mobile" bindblur="bindphone"/>
+        </view>
+        
+        <view class='nickname area resets_line'>
+          <input placeholder="验证码" id="verifycode" name="verifycode" type='number'/>
+          <text class="HuoQuX" bindtap="get_mobile_code" id="zphone" class="{{is_show?'show':'hide'}}">获取验证码</text>
+          <text class="HuoQuX HuoQuX-1" class="{{is_show?'hide':'show'}}">{{last_time}}</text>
+        </view>
+      </view>
+    </view>
+    <button class='footer' formType="submit">
+      立即绑定
+    </button>
+  </form>
+  <view class='loadapp'>
+    <view >如果您不是系统班学员,请下载APP加入</view>
+    <view class='download' bindtap='appload'>立即下载</view>
+  </view>
+</view>
+
+<!-- 
+<button class="contact_btn" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button> -->
+<view class='mask' bindtap='maskhide' style='height:{{height}}' wx:if="{{appload}}">
+  <view class='code-box'>
+    <view class='mask-title'>下载APP</view>
+    <view class='mask-tip'>下载我爱教师APP，更多精品课程和VIP特权</view>
+    <image src='http://imgs.52jiaoshi.com/1560159673.png' class='code'  bindtouchstart='timestart' bindtouchend='timeend' catchtap='saveimg'></image>
+    <view class='tip1'>长按保存图片后，打开微信识别二维码</view>
+
+    <view class='mask-btn' catchtap='stepshow'>
+      <text>如何下载</text>
+      <image src='http://imgs.52jiaoshi.com/1559274259.png'></image>
+    </view>
+    <view class='step-box' wx:if="{{step}}">
+      <view class='left'>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 60rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 430rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 420rpx;'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='right'>
+        <view class='step-title' style='margin-bottom:50rpx;'>第1步：长按保存图片到相册</view> 
+        <view class='step-title'>第2步：打开微信扫一扫</view>
+        <image src='http://imgs.52jiaoshi.com/1559274954.png' mode="widthFix"></image> 
+        <view class='step-title'>第3步：点击相册，选择二维码识别</view>
+        <image src='http://imgs.52jiaoshi.com/1559275026.png' mode="widthFix"></image>
+        <view class='step-title'>第4步：点开链接安装</view>   
+      </view>
+    </view>
+  </view>
+</view>

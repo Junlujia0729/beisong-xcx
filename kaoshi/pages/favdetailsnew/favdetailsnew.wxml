@@ -1,0 +1,48 @@
+<!--pages/detail/detail.wxml-->
+
+<view style='position:fixed;z-index: 999;width:100%;background:#fff;'>
+  <view class="swiper-tab">
+    <view data-current="0" class="swiper-tab-item active">收藏 ({{questions_num}})</view>
+</view>
+</view>
+<view style='padding-bottom:98rpx;margin-top:120rpx;'>
+  <swiper duration="300"
+  bindchange="swiperTab1" current="{{curSwiperItem0}}" circular="true" style="height: {{clientHeight ?clientHeight+'px':'auto'}}">
+    <swiper-item wx:if="{{questions.length == 0}}">
+      <view class="questions_box_none"><text>您还没有收藏题目，</text><text class="" bindtap='gotoBack'>点击返回背题</text></view>
+    </swiper-item>
+    <swiper-item wx:for="{{questions}}" wx:for-item="item" wx:key="id">
+      <scroll-view scroll-y="true" bindscrolltolower="onLower" lower-threshold="50" scroll-top="{{item.reciteBox}}" style="height: {{clientHeight ?clientHeight+'px':'auto'}}">
+        <view class="questions_box">
+          <question question="{{item}}" bind:collect="collect" bind:canclefav="canclefav"/>
+        </view>
+        <view class='line'></view>
+        <view class="commentlist" wx:if="{{item.comments && item.comments.length}}">
+          <view class='Qt'>
+            <text class='sbox'></text>看看大家说什么<text class='sbox'></text>
+          </view>
+          <comment comment="{{comment}}" cindex="{{cindex}}"  bind:replyevent="onReplyEvent" bind:dianzanevent="onDianzanEvent" wx:for="{{item.comments}}" wx:for-item="comment" wx:for-index="cindex" wx:key="id" />
+        </view>
+        <view wx:else class='nocomment' bindtap="addcomment">
+          暂无评论，点击抢沙发。
+        </view>
+        <!-- 加载更多 -->
+        <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 底部按钮 -->
+<view class='footer-btn'>
+  <!-- 评论 -->
+  <!-- <input style='text' placeholder="我要说..." bindtap="addcomment" class='addcomment' placeholder-style="color:#333;"></input> -->
+  <text style='text' bindtap="addcomment" class='addcomment'>
+    <text>我要说...</text>
+  </text>
+</view> 
+<!-- 背 -->
+<view class='recite-btn' bindtouchstart='recite' bindtouchend='reciteEnd' 
+  wx:if="{{q_type != 1}}"></view>
+

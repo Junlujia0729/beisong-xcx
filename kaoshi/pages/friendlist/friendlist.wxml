@@ -1,0 +1,17 @@
+<!--pages/friend/friend.wxml-->
+<view class='list' wx:if="{{datas.length > 0}}">
+  <view class='list-item' wx:for="{{datas}}" wx:key="key" wx:item="item">
+    <view class='left'>
+      <image src='{{item.avatar}}'></image>
+    </view>
+    <view class='right'>
+      <view class='nickname'>{{item.nickname}}</view>
+      <text>{{item.createtime}}</text>
+      <view class='score'>{{item.score}}分</view>
+    </view>
+  </view>
+</view>
+<view wx:else class='tip'>
+  <text>暂无好友评分</text>
+  <navigator open-type="redirect" url="../interviewdetail/interviewdetail?id={{id}}"><button class='invit_btn'>立即邀请好友评分</button></navigator>
+</view>

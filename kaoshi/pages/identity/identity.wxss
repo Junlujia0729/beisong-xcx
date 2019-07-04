@@ -1,0 +1,67 @@
+/* pages/home/home.wxss */
+page{
+  font-size: 24rpx;
+  background: #fff; 
+}
+.guide,guide2{
+  height: 100%;
+  background: #fff;
+  padding: 40rpx 30rpx;
+  overflow-x:hidden; 
+}
+.title{color: #222;font-size: 30rpx;margin-bottom: 20rpx;}
+.examtype{
+  margin-bottom: 60rpx;
+  width: 110%;
+}
+.examtype .type-item{
+  display: inline-block;
+  width: 156rpx;
+  height: 60rpx;
+  background: #f5f6f8;
+  color: #666;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  margin: 0 20rpx 24rpx 0;
+}
+.examtype .type-item-active{
+  background: #3eccb3;
+  border:none;
+  color: #fff;
+}
+.examtype .type-item-none{
+  background: #e5e5e5;
+  font-size: 28rpx;
+}
+.g2{padding: 30rpx 0 50rpx;font-size: 26rpx;color: #999;text-align: center}
+.g2 .g2_t{
+  color: #3eccb3;
+}
+
+.choose-btn{
+  width: 690rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #d5d5d5;
+  text-align: center;
+  font-size: 36rpx;
+  color: #aaa;
+  margin: 0 auto;
+  border-radius: 8rpx;  
+}
+.choose-btn-activity{
+  width: 690rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #3eccb3;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  margin: 0 auto;
+  border-radius: 8rpx; 
+}
+
+
+

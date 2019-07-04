@@ -1,0 +1,58 @@
+<!--pages/vip/vip.wxml-->
+
+<view class='top'>
+  <view class="title">考点背诵2019最新版</view>
+  <view class='tip'>该栏目仅对系统班学员和VIP会员开放</view>
+</view>
+<view class='img'>
+  <image src='http://imgs.52jiaoshi.com/1560760678.jpg' mode='widthFix' ></image>
+</view>
+<view class="bottom_buttons">
+  <view class='w11'>
+    <view class='vip' bindtap='openvip'>立即开通VIP</view>
+  </view>
+</view>
+
+
+<!-- 咨询 -->
+<view class="contact_btn_new">
+  <button session-from="sobot| vip" open-type="contact" show-message-card="true">
+      <image src="http://imgs.52jiaoshi.com/1560757125.png" mode="widthFix"></image> 
+  </button>
+  <text>咨询</text>
+</view>
+
+
+
+<view class='mask' bindtap='maskhide' style='height:{{height}}' wx:if="{{appload}}">
+  <view class='code-box'>
+    <view class='mask-title'>下载APP</view>
+    <view class='mask-tip'>下载我爱教师APP，更多精品课程和VIP特权</view>
+    <image src='https://api.52jiaoshi.com/Public/images/app_new.png' class='code'  bindtouchstart='timestart' bindtouchend='timeend' catchtap='saveimg'></image>
+    <view class='tip1'>长按保存图片后，打开微信识别二维码</view>
+
+    <view class='mask-btn' catchtap='stepshow'>
+      <text>如何下载</text>
+      <image src='http://imgs.52jiaoshi.com/1559274259.png'></image>
+    </view>
+    <view class='step-box' wx:if="{{step}}">
+      <view class='left'>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 60rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 430rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 420rpx;'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='right'>
+        <view class='step-title' style='margin-bottom:50rpx;'>第1步：长按保存图片到相册</view> 
+        <view class='step-title'>第2步：打开微信扫一扫</view>
+        <image src='http://imgs.52jiaoshi.com/1559274954.png' mode="widthFix"></image> 
+        <view class='step-title'>第3步：点击相册，选择二维码识别</view>
+        <image src='http://imgs.52jiaoshi.com/1559275026.png' mode="widthFix"></image>
+        <view class='step-title'>第4步：点开链接安装</view>   
+      </view>
+    </view>
+  </view>
+</view>

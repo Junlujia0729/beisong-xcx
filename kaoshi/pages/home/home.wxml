@@ -1,0 +1,106 @@
+<!--pages/home/home.wxml-->
+<!-- banner -->
+<swiper wx:if="{{imgUrls.length > 0}}" indicator-dots="{{imgUrls.length > 1}}"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:{{swiperHeight}};">  
+  <block wx:for="{{imgUrls}}" wx:key="key" wx:for-index="idx" wx:item="item">  
+  <swiper-item class="banner">
+    <navigator target="miniProgram" open-type="navigate" app-id="{{item.xcx_code}}" path="{{item.path}}" extra-data="" version="release" wx:if="{{item.xcx_code}}">
+    <image src="{{item.banner}}" class="slide-image" data-index="{{idx}}" mode="widthFix" /> 
+    </navigator>
+    <image src="{{item.banner}}" bindtap='clickBanner' class="slide-image" data-index="{{idx}}" mode="widthFix" wx:if="{{!item.xcx_code}}"/>  
+  </swiper-item>
+  </block>  
+</swiper>
+<!-- <view class="seprate-line"></view> -->
+<!-- 模块 -->
+<view class="router_box" wx:for="{{routers}}" wx:key="key222" wx:for-item="ritem" wx:for-index="rkey">
+  <view class="router_item" wx:for="{{ritem}}" wx:key="key444" wx:for-item="rti" wx:for-index="rtk" bindtap='Todraw' data-pindex="{{rkey}}" data-index="{{rtk}}"
+  wx:if="{{rti.path == 'draw/draw'}}">
+    <image src="{{rti.banner}}" mode="widthFix"></image>
+    <text>{{rti.title}}</text>
+  </view>
+  <view class="router_item" wx:for="{{ritem}}" wx:key="key444" wx:for-item="rti" wx:for-index="rtk" bindtap='clickRouter' data-pindex="{{rkey}}" data-index="{{rtk}}" 
+  wx:if="{{rti.path != 'draw/draw'}}">
+    <image src="{{rti.banner}}" mode="widthFix"></image>
+    <text>{{rti.title}}</text>
+  </view>
+  <navigator target="miniProgram" open-type="navigate" app-id="wxd0ac17dc7a237da5" path="{{item.path}}" class="router_item">
+    <image mode="widthFix"src="http://imgs.52jiaoshi.com/1556527333.png"
+    style="height: 34.507px;"></image>
+    <text>简章</text>
+  </navigator>
+</view>
+<!-- 结构化 -->
+<view class='ques-type container' wx:if="{{struct.tasks && struct.tasks.length > 0}}">
+  <view class='ques-t-title'>
+    {{struct.title}}
+  </view>
+  <view class='ques-box' >
+    <view class='ques-item' data-task="{{item.id}}" wx:for="{{struct.tasks}}" wx:for-item="item" wx:key="key">
+      <form report-submit='true' bindsubmit='submitformid' >
+        <button class='submitformid'  form-type='submit'>
+          <image src='{{item.icon}}' mode="widthFix"></image>
+          <text>{{item.title}}</text>
+          <input name='task' value='{{item.id}}' type='hidden' style='opacity:0;display:none;'></input>
+        </button>
+      </form>
+    </view>
+  </view>
+</view>
+<!-- 试讲视频 -->
+<view id='video' wx:if="{{videoes.videoes && videoes.videoes.length >0}}">
+  <navigator url="../videolist/videolist" hover-class="none" >
+    <text class='videotitle'>{{videoes.title}}</text>
+    <text>查看更多</text>
+  </navigator>
+  <view class='classVideo' bindtap='playvideo' wx:for="{{videoes.videoes}}" wx:for-item="item"
+  wx:key="key" data-index='{{index}}'>
+    <image src='{{item.poster}}' mode="widthFix"></image>
+    <view class='videotip'>
+      {{item.title}}
+    </view>
+    <view class='palynum'>
+      {{item.views}}
+    </view>
+    <view class='desc'>
+      {{item.desc}}
+    </view>
+  </view>
+</view>
+
+<!-- 题目 -->
+<view class='container'>
+    <view class='ques-type' wx:for="{{tasks}}" wx:for-item="item" wx:key="key" >
+      <view class='ques-t-title'>
+        {{item.name}}
+        <view class='more' wx:if="{{item.list.length > 8}}" data-levelid="{{item.levelid}}" bindtap="moreques">
+          查看更多
+        </view>
+      </view>
+      <view class='ques-box' >
+        <view class='ques-item' data-task="{{item1.id}}" wx:for="{{item.list}}" wx:for-item="item1" wx:key="key1" wx:if="{{index < 8}}">
+          <form report-submit='true' bindsubmit='submitformid' >
+            <button class='submitformid'  form-type='submit'>
+              <image src='{{item1.icon}}' mode="widthFix"></image>
+              <text>{{item1.title}}</text>
+              <input name='task' value='{{item1.id}}' type='hidden' style='opacity:0;display:none;'></input>
+            </button>
+          </form>
+        </view>
+      </view>
+    </view>
+</view>
+
+<!--弹窗  -->
+<view class='fix_mask' wx:if="{{mask || mask_defult}}">
+  <view class='content'>
+    <image src='http://imgs.52jiaoshi.com/1543370171.png' class="simpledialog" bindtap='clickBomb' wx:if="{{mask == 1}}"></image>
+    <image src='{{maskdata.banner}}' class="simpledialog" bindtap='clickBombdefult' wx:if="{{mask != 1 && !maskdata.xcx_code && mask_defult}}"></image>
+    <navigator target="miniProgram" open-type="navigate" app-id="{{maskdata.xcx_code}}" path="{{maskdata.path}}" extra-data="" version="release" wx:if="{{maskdata.xcx_code && mask != 1 && mask_defult}}">
+    <image src="{{maskdata.banner}}" class="slide-image" data-index="{{idx}}" mode="widthFix" /> 
+    </navigator>
+    <image class='close' src='http://imgs.52jiaoshi.com/zhjs/btn_close.png' bindtap='close_mask'></image>
+  </view>
+</view>
+
+
+<!-- <button class="contact_btn" style="bottom:90rpx;" open-type="contact" show-message-card="true" session-from="ZGZKSBD" style="bottom:90rpx;"><image src="/images/icon_wechat.png" mode="widthFix" ></image></button> -->

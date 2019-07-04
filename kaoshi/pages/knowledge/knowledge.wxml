@@ -1,0 +1,79 @@
+<!--pages/knowledge/knowledge.wxml-->
+<view class='container'>
+  <view class='title'>
+    <text class='line'></text><text class='name'>考点背诵</text>
+  </view>
+  <view class='content'>
+    <rich-text nodes="{{datas.arr_skill}}"></rich-text>
+  </view>
+  <!-- <view class='title'>
+    <text class='line'></text><text class='name'>考情分析</text>
+  </view>
+  <view class='content'>
+    <rich-text nodes="{{datas.arr_skill}}"></rich-text> 
+  </view> -->
+</view>
+
+<view class='footer'>
+  <view class='footer-center'>
+    <view class='footer-item footer-btn ask'> 
+      <button session-from="sobot|{{datas.id}}" open-type="contact" show-message-card="true">
+        <image src="http://imgs.52jiaoshi.com/1558668169.png" mode="widthFix"></image> 
+      </button>
+      <text>咨询客服</text> 
+    </view>
+    <view class='footer-item' bindtouchend='reciteEnd' bindtouchstart='recite'>
+      <image src='{{rememberimg}}' class='remember'></image> 
+      <text style='font-size:18rpx;'>长按背考点</text> 
+    </view> 
+    <view class='footer-item footer-btn' bindtap='practice'>
+      <image src='http://imgs.52jiaoshi.com/1558677402.png'></image> 
+      <text>诊断</text> 
+    </view>
+  </view>  
+  <view class='collect' bindtap='collect' wx:if="{{isfav == 0}}">
+    <image src='http://imgs.52jiaoshi.com/1558679310.png'></image>
+    <text>收藏</text>
+  </view>
+  <view class='collect' bindtap='canclefav' wx:else>
+    <image src='http://imgs.52jiaoshi.com/1560163918.png'></image>
+    <text>取消</text>
+  </view>
+  <!-- <view class='collect' bindtap='oncanclefav'>
+    <image src='../../images/zgzbd/or_collect.png'></image>
+    <text class="collect_already">已收藏</text>
+  </view>   -->
+</view>
+<view class='mask' bindtap='maskhide' style='height:{{height}}' wx:if="{{teacher}}">
+  <view class='code-box'>
+    <view class='mask-title'>问老师</view>
+    <view class='mask-tip'>扫码加老师微信，获取更服务与资料</view>
+    <image src='{{qrcode}}' class='code'  bindtouchstart='timestart' bindtouchend='timeend' catchtap='saveimg'></image>
+    <view class='tip1'>长按保存图片后，打开微信识别二维码</view>
+    <view class='tip1'>加老师微信咨询</view>
+
+    <view class='mask-btn' catchtap='stepshow'>
+      <text>如何进群</text>
+      <image src='http://imgs.52jiaoshi.com/1559274259.png'></image>
+    </view>
+    <view class='step-box' wx:if="{{step}}">
+      <view class='left'>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 60rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 430rpx;'></view>
+        <view class='dot'></view>
+        <view class='step-line' style='height: 420rpx;'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='right'>
+        <view class='step-title' style='margin-bottom:50rpx;'>第1步：长按保存图片到相册</view> 
+        <view class='step-title'>第2步：打开微信扫一扫</view>
+        <image src='http://imgs.52jiaoshi.com/1559274954.png' mode="widthFix"></image> 
+        <view class='step-title'>第3步：点击相册，选择二维码识别</view>
+        <image src='http://imgs.52jiaoshi.com/1559275026.png' mode="widthFix"></image>
+        <view class='step-title'>第4步：添加老师微信即可</view>   
+      </view>
+    </view>
+  </view>
+</view>

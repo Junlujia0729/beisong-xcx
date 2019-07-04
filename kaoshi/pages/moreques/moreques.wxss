@@ -1,0 +1,3 @@
+/* pages/moreques.wxss */
+
+@import"../home/home.wxss";

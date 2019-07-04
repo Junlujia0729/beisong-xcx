@@ -1,0 +1,32 @@
+<!--components/comment/comment.wxml-->
+<view class='comment_item'>
+    <view class="u_headimg">
+        <image src="{{comment.avatar}}" data-userid="" mode="widthFix" data-userid="{{comment.created_by}}" style='height:60rpx;'></image>  
+    </view>
+    <view class="comment_r">
+        <view class="u_info">
+            <view class="u_name">{{comment.nickname}}</view>
+            <text class="u_time">{{comment.createtime}}</text>
+            <text class='u_z'>{{comment.floor}}楼</text>
+        </view>
+        <view class="comment_r_con" wx:if="{{comment.reply != ''}}">
+            <view class='comment_r_n'>回复{{comment.reply.floor}}楼“{{comment.reply.nickname}}”发表的：</view>
+            <view class='comment_r_c'>{{comment.reply.content}}             </view>   
+        </view>
+        <view class="comment_content">
+            {{comment.content}} 
+          <view class="d_c_i_cont_img" wx:if="{{comment.pics.length > 0}}">
+            <image wx:for="{{comment.pics}}" wx:key="lt" wx:for-item="imgitem" wx:for-index="imgidx" src="{{imgitem}}" data-src="{{imgitem}}"
+      mode="widthFix" bindtap='onCmtImageClick' data-index="{{imgidx}}" data-pid="{{comment.id}}"  mode="widthFix" style='width:100%;'/>
+          </view>  
+        </view>
+        
+        <view class='u_operation'>
+          <view class='u_like_btn' catchtap='onDianzanClick' data-index="{{cindex}}" data-like="{{comment.like_type}}" data-likes="{{comment.likenum}}" data-id="{{comment.id}}">
+            <image src="{{comment.like_type ? 'http://imgs.52jiaoshi.com/1559804927.png'  : 'http://imgs.52jiaoshi.com/1535965644.png'}}" class="dianzan" mode="widthFix" ></image>
+            <text class="u_like {{comment.like_type ? 'u_like_ac' : ''}}">{{comment.likenum ? comment.likenum : 0}}</text>
+          </view>
+          <text class="u_reply" catchtap='onReplyClick' data-id="{{comment.id}}" data-uname="{{comment.nickname}}" data-index="{{cindex}}" data-uid="{{comment.replyid}}" data-articleid="{{comment.qaid}}">回复</text>
+        </view>
+    </view>
+</view>

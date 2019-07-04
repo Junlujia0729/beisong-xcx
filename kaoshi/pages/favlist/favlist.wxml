@@ -1,0 +1,7 @@
+<!--pages/favlist/favlist.wxml-->
+<view class='list' wx:if="{{lists.length > 0}}">
+  <view class='list-item' wx:for="{{lists}}" wx:for-item="item" wx:key="key" data-id="{{item.knowleage_id}}" bindtap='toknowledge'>{{item.edu_name_chapter}} -- {{item.knowleage_name}}</view>
+</view>
+<view wx:else class='tip'>
+  暂时还有没有收藏知识点哦
+</view>

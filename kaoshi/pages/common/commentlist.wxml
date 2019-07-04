@@ -1,0 +1,43 @@
+<view class="commentlist">
+  <view class='Qt'>
+      <text></text>最新评论<text></text>
+  </view>
+  <view class='comment_item' wx:for="{{common_comment_list}}" wx:key="id" wx:for-item="item" wx:for-index="idx" wx:if="{{common_comment_list && common_comment_list.length >0}}">
+    <view class="u_headimg">
+        <image src="{{item.created_headimgurl}}" data-userid="" mode="widthFix" data-userid="{{item.created_by}}"></image>  
+    </view>
+    <view class="comment_r">
+        <view class="u_info">
+            <view class="u_name">{{item.created_nickname}}</view>
+            <text class="u_time">{{item.created_time}}</text>
+            <text class='u_z'>{{item.num}}楼</text>
+        </view>
+        <view class="comment_r_con" wx:if="{{item.reply_content}}">
+            <view class='comment_r_n'>回复{{item.reply_content.num}}楼“{{item.reply_content.created_nickname}}”发表的：</view>
+            <view class='comment_r_c'>{{item.reply_content.content}}             </view>   
+        </view>
+        <view class="comment_content">
+            {{item.content}} 
+          <view class="d_c_i_cont_img" wx:if="{{item.images.length > 0}}">
+            <image wx:for="{{item.images}}" wx:key="lt" wx:for-item="imgitem" wx:for-index="imgidx" src="{{imgitem}}" data-src="{{imgitem}}"
+      mode="widthFix" bindtap='clickCmtImage' data-index="{{imgidx}}" data-pid="{{item.id}}" bindload="cmtImageLoad"  mode="widthFix" style='width:100%;'/>
+          </view>  
+        </view>
+        
+        <view class='u_operation'>
+          <view class='u_like_btn' catchtap='dianzanComment' data-index="{{idx}}" data-like="{{item.isliked}}" data-classid="{{item.article_id}}" data-likes="{{item.likes}}" data-id="{{item.id}}">
+            <image src="{{item.isliked ? 'http://imgs.52jiaoshi.com/1538994428.png'  : 'http://imgs.52jiaoshi.com/1535965644.png'}}" class="dianzan" mode="widthFix" ></image>
+            <text class="u_like">{{item.likes ? item.likes : 0}}</text>
+          </view>
+          <text class="u_reply" catchtap='replycomment' data-cmtid="{{item.comment_id}}" data-id="{{item.id}}" data-uname="{{item.created_nickname}}" data-index="{{idx}}" data-uid="{{item.created_by}}" data-articleid="{{item.article_id}}">回复</text>
+          <!-- <text class='u_other'>···</text> -->
+        </view>
+    </view>
+    </view>
+    <!-- 加载更多 -->
+    <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}
+  </view>
+  <view wx:if="{{common_comment_list.length == 0}}" class='nocomment'>
+    暂无评论！
+  </view>
+</view>

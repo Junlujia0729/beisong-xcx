@@ -1,0 +1,45 @@
+<view class='qestion-item'>
+  <view class='Q-title' id='section_title_box'>
+    <view>
+      <rich-text nodes="{{question.arr_title}}"></rich-text>
+    </view>
+  </view>
+  <!-- 单选题 -->
+  <view class="question_cont_scroll" wx:if="{{question.type == 1}}">
+    <view class="question_cont" id="question_recite_{{question.id}}">
+      <view wx:if="{{question.arr_item_a != null}}">
+        <view class="qu_answer_info {{question.answer == 'A' ? 'active_1' : ''}}" data-answer="A" data-anindex="0" >
+          <text class="qu_answer_letter">A</text>
+          <rich-text nodes="{{question.arr_item_a}}" ></rich-text> 
+        </view>
+        <view class="qu_answer_info {{question.answer == 'B' ? 'active_1' : ''}}"   data-answer="B" data-anindex="1">
+          <text class="qu_answer_letter ">B</text>
+          <rich-text nodes="{{question.arr_item_b}}"></rich-text>
+        </view>
+        <view wx:if="{{question.arr_item_c.length > 0}}" class="qu_answer_info {{question.answer == 'C' ? 'active_1' : ''}}" data-answer="C" data-anindex="2"  >
+          <text class="qu_answer_letter ">C</text>
+          <rich-text nodes="{{question.arr_item_c}}"></rich-text>
+        </view>
+        <view wx:if="{{question.arr_item_d.length > 0}}" 
+        class="qu_answer_info {{question.answer == 'D' ? 'active_1' : ''}}" bindtap="swipclick" data-answer="D" data-anindex="3"  data-type="{{item.ques.type}}">
+          <text class="qu_answer_letter ">D</text>
+          <rich-text nodes="{{question.arr_item_d}}" ></rich-text>  
+        </view>
+        <view class="qu_answer_info {{question.answer == 'E' ? 'active_1' : ''}}" wx:if="{{question.arr_item_e.length > 0}}" data-answer="E" data-anindex="4" >
+          <text class="qu_answer_letter ">E</text>
+          <text class='qu_answer_content'>{{question.item_e[0].content}}</text>  
+        </view>
+        <view class="qu_answer_info {{question.answer == 'F' ? 'active_1' : ''}}" wx:if="{{question.arr_item_f.length > 0}}" data-answer="F" data-anindex="5"  >
+          <text class="qu_answer_letter ">F</text>
+          <text class='qu_answer_content'>{{question.item_f[0].content}}</text>  
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 简答题 -->
+  <view class="Q-content {{question.type != 1 ? 'Q-content-border':''}}" wx:if="{{question.arr_questionanalysis.length > 0}}" id="question_recite_{{question.id}}">
+    <view wx:if="{{question.type == 1}}"><text class='jx-line jx-left'></text><text class='jx-line jx-right'></text><text class='jx-word'>试题解析</text></view>
+    <view class='answer-true' wx:if="{{question.type == 1}}">答案：{{question.answer}}</view>
+    <rich-text nodes="{{question.arr_questionanalysis}}"></rich-text> 
+  </view>
+</view>

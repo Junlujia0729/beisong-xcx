@@ -1,0 +1,18 @@
+<!--pages/videoplay/videoplay.wxml-->
+
+<view class='videolist'>
+  <view class='video-item'>
+    <video src="{{video.url}}" controls  poster="{{video.poster}}" autoplay='true'></video>
+    <view class='videotip'>
+      <text>{{video.title}}</text>
+      <text class='palynum'>{{video.views}}</text>
+    </view> 
+    <view class='desc'>
+        {{video.desc}}
+    </view> 
+  </view>
+</view>
+
+<view class="text">
+<text>{{text}}</text>
+</view>

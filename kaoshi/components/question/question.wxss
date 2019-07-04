@@ -1,0 +1,266 @@
+/* components/question/question.wxss */
+.Q-title{
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.Q-title .collect image{
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+}
+.Q-t-type{
+  display: inline-block;
+  padding: 0 14rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  color: #999;
+  background: #f2f3f4;
+}
+.Q-title rich-text{
+  line-height: 60rpx;
+}
+.Q-content{
+  padding: 0 30rpx 50rpx;
+  background: #fff;
+  font-size: 32rpx;
+  color: #999;
+  line-height: 60rpx;
+}
+.jx-word{
+  display: inline-block;
+  color: #333;
+  margin:0 248rpx;
+  text-align: center;
+}
+.jx-line{
+  width: 230rpx;
+  height: 1px;
+  background: #e5e5e5;
+  position: relative;
+  bottom:-32rpx;
+}
+.jx-left{
+  float: left;
+}
+.jx-right{
+  float: right;
+}
+.answer-true{
+  color: #3eccb3;
+}
+.Q-content view{
+  margin-bottom: 20rpx;
+}
+.Q-content-border{
+  border:1px solid #e5e5e5;
+  padding: 50rpx 30rpx;
+  background: #fcfcfc;
+  border-radius: 8rpx;
+}
+.briefly{
+  color: #fd5050;
+}
+
+.footer-btn{
+ height: 98rpx;
+ line-height: 98rpx;
+ position: fixed;
+ bottom:0;
+ left:0;
+ border-top:1px solid #e2e2e2;
+ padding: 0 60rpx;
+ width: 630rpx;
+ z-index: 9;
+ background: #fff;
+}
+.footer-btn .btn-item{
+  display: inline-block;
+}
+.footer-btn .btn-item text{
+  display: inline-block;
+  font-size: 30rpx;
+  color: #333;
+  margin-left:14rpx;
+}
+.footer-btn image{
+  width: 44rpx;
+  height: 44rpx;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top:-5rpx;
+} 
+.remember{
+  float:right;
+}
+.recite-btn{
+  position: fixed;
+  left:50%;
+  bottom:10rpx;
+  width: 130rpx;
+  height: 130rpx;
+  border:6rpx solid #f2f3f4;
+  background: #3eccb3;
+  border-radius: 50%;
+  margin-left: -65rpx;
+  text-align: center;
+  line-height: 130rpx;
+  font-size: 44rpx;
+  color: #fff;
+}
+.Q-Skill{
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin: 30rpx 0;
+  border:1px solid #e2e2e2;
+}
+.Qt{
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 30rpx;
+  margin-bottom: 30rpx;
+}
+.Qt text{
+  display: inline-block;
+  margin: 0 20rpx;
+  width: 8rpx;
+  height: 8rpx;
+  background: #3eccb3;
+  position: relative;
+  top:-8rpx;
+}
+.Qc{
+  color: #999;
+  font-size: 28rpx;
+}
+
+
+/* 单选 */
+.question_cont_scroll{
+  background: #fff;
+}
+.question_cont{
+  padding:14px;
+}
+.qu_answer_info{
+  font-size: 32rpx;
+  color: #333;
+  line-height: 50rpx;
+  padding: 20rpx 0;
+  position: relative;
+}
+.qu_answer_letter {
+  display: inline-block;
+  border: 1px solid #3eccb3;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
+  font-size: 30rpx;
+  vertical-align: top;
+  margin-right: 30rpx;
+  color: #3eccb3;
+  position: absolute;
+  top:50%;
+  margin-top:-25rpx;
+}
+.qu_answer_content{
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 27rpx;
+    overflow: hidden;
+    vertical-align: middle;
+    width:85%;
+
+}
+rich-text{
+  display: inline-block;
+  position: relative;
+}
+.Q-title rich-text{
+  margin-left: 5rpx;
+  line-height: 60rpx;
+  font-size: 32rpx;
+  letter-spacing:2px;
+  font-weight: normal;
+}
+.activity_num{
+  font-weight: normal;
+}
+.qu_answer_info rich-text{
+  width: 80%;
+  position: relative;
+  margin-left: 80rpx;
+}
+.question_cont .active_1 text{
+  background: #3eccb3;
+  color: #fff;
+  border:1px solid #3eccb3;
+}
+.question_cont .active_1 rich-text{
+  color: #3eccb3;
+}
+.addcomment{
+  position: fixed;
+  right: 30rpx;
+  bottom: 150rpx;
+  background: #fff;
+  width: 180rpx;
+  height: 72rpx;
+  box-shadow: 4rpx 10rpx 10rpx rgba(0, 0, 0, .2);
+  text-align: center;
+  line-height: 72rpx;
+  font-size: 30rpx;
+  color: #121212;
+  border-radius: 30rpx;
+}
+
+.collect{
+  float: left;
+}
+.share{
+  float: right;
+  background: none;
+  padding-left:0;
+  padding-right:0;
+  border-radius:30rpx;
+  font-size: 26rpx;
+  border: 1px solid #666;
+  width: 122rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #666;
+}
+.share::after{
+  border:none;
+}
+.collect text{
+  font-size: 26rpx;
+  color: #666;
+  display: inline-block;
+  padding-left: 5rpx;
+}
+
+.Q-type{
+  padding: 0 10rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  color: #3eccb3;
+  border: 1px solid #3eccb3;
+  font-size: 24rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+  border-radius: 6rpx;
+}
+.collect .collect_already{
+  color: #ff6b49;
+}
